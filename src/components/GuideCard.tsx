@@ -3,12 +3,15 @@ import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Clock, TrendingUp, MapIcon } from 'lucide-react';
 import { TravelGuide } from '../types';
+import { useNavigate } from 'react-router-dom';
 
 interface GuideCardProps {
   guide: TravelGuide;
 }
 
 export const GuideCard = ({ guide }: GuideCardProps) => {
+  const navigate = useNavigate();
+
   const getDifficultyColor = (difficulty: string) => {
     const colors = {
       '轻松': 'bg-green-500/10 text-green-700 dark:text-green-400',
@@ -70,7 +73,7 @@ export const GuideCard = ({ guide }: GuideCardProps) => {
       </CardContent>
 
       <CardFooter>
-        <Button className="w-full" variant="outline">
+        <Button className="w-full" variant="outline" onClick={() => navigate(`/guide/${guide.id}`)}>
           查看完整路书
         </Button>
       </CardFooter>

@@ -24,10 +24,19 @@ export const Hero = () => {
           发现中国最美冰雪景观，开启难忘的冬季之旅
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
-          <Button size="lg" className="text-lg px-8">
+          <Button
+            size="lg"
+            className="text-lg px-8"
+            onClick={() => document.getElementById('destinations')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             探索景点
           </Button>
-          <Button size="lg" variant="secondary" className="text-lg px-8">
+          <Button
+            size="lg"
+            variant="secondary"
+            className="text-lg px-8"
+            onClick={() => document.getElementById('guides')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             查看路书
           </Button>
         </div>

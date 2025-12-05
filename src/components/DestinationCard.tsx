@@ -3,12 +3,15 @@ import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { MapPin, Thermometer, Star } from 'lucide-react';
 import { Destination } from '../types';
+import { useNavigate } from 'react-router-dom';
 
 interface DestinationCardProps {
   destination: Destination;
 }
 
 export const DestinationCard = ({ destination }: DestinationCardProps) => {
+  const navigate = useNavigate();
+
   return (
     <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group">
       <div className="relative h-48 overflow-hidden">
@@ -49,7 +52,9 @@ export const DestinationCard = ({ destination }: DestinationCardProps) => {
       </CardContent>
 
       <CardFooter>
-        <Button className="w-full">查看详情</Button>
+        <Button className="w-full" onClick={() => navigate(`/destination/${destination.id}`)}>
+          查看详情
+        </Button>
       </CardFooter>
     </Card>
   );
